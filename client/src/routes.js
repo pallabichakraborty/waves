@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-class App extends Component {
+import { Switch, Route } from 'react-router-dom';
 
-  componentDidMount()
-  {
-    axios.get('/api/product/getbrands').then(response => {
-      console.log(response);
-    })
-  }
-  render() {
-    return (
-      <div className="App">
-        My App
-      </div>
-    );
-  }
-}
+import Home from './components/Home';
+import Layout from './components/hlc/layout';
+import LoginRegister from './components/login_register';
+import Register from './components/login_register/register';
 
-export default App;
+const routes = () => {
+  return (
+    <Layout>
+      <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/login" exact component={LoginRegister}/>
+          <Route path="/register" exact component={Register}/>
+      </Switch>
+    </Layout>
+  );
+};
+
+export default routes;
+
+

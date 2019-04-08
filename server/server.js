@@ -14,6 +14,7 @@ mongoose.connect(process.env.DATABASE, {
 }).catch((err)=> {
     console.log("Error in Connection");
 });
+mongoose.set('useFindAndModify', false);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -155,7 +156,7 @@ app.get('/api/users/auth',auth,(req,res)=> {
     })
 })
 
-app.get('/api/user/logout',auth,(req,res)=> {
+app.get('/api/users/logout',auth,(req,res)=> {
     User.findOneAndUpdate(
         { "_id":req.user._id},
         {token:''},

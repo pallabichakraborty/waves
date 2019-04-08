@@ -26,7 +26,7 @@ export default function (ComposedClass, reload, adminRoute = null) {
                     }
                     else {
                         if (!reload) {
-                            this.props.history.push('/user/dashboard');
+                            //this.props.history.push('/user/dashboard');
                         }
 
                     }
